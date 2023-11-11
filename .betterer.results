@@ -1,0 +1,28 @@
+// BETTERER RESULTS V2.
+// 
+// If this file contains merge conflicts, use `betterer merge` to automatically resolve them:
+// https://phenomnomnominal.github.io/betterer/docs/results-file/#merge
+//
+exports[`No TODOs`] = {
+  value: `{
+    "projects/testing/src/app/app.component.cy.ts:93801659": [
+      [11, 4, 7, "RegExp match", "645814773"]
+    ]
+  }`
+};
+
+exports[`No \'projects/*\' imports`] = {
+  value: `{
+    "projects/testing/src/app/app.component.ts:1508144124": [
+      [11, 0, 109, "RegExp match", "1867984992"]
+    ]
+  }`
+};
+
+exports[`No \'dist\' imports`] = {
+  value: `{
+    "projects/testing/src/app/app.component.ts:1508144124": [
+      [10, 0, 105, "RegExp match", "1114499788"]
+    ]
+  }`
+};

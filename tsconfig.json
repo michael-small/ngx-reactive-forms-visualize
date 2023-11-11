@@ -12,9 +12,8 @@
         "noFallthroughCasesInSwitch": true,
         "sourceMap": true,
         "paths": {
-            "ngx-reactive-forms-visualizer": [
-                "dist/ngx-reactive-forms-visualizer"
-            ]
+            "ngx-reactive-forms-visualizer": ["dist/ngx-reactive-forms-visualizer"],
+            "modelsZZZZ/*": ["projects/testing/src/app/models/*"]
         },
         "declaration": false,
         "downlevelIteration": true,
@@ -24,12 +23,29 @@
         "target": "ES2022",
         "module": "ES2022",
         "useDefineForClassFields": false,
-        "lib": ["ES2022", "dom"]
+        "lib": ["ES2022", "dom"],
+        "skipLibCheck": true,
     },
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,
         "strictInjectionParameters": true,
         "strictInputAccessModifiers": true,
-        "strictTemplates": true
-    }
+        "strictTemplates": true,
+        "extendedDiagnostics": {
+            "checks": {
+                "invalidBananaInBox": "error",
+                "nullishCoalescingNotNullable": "error",
+                "missingControlFlowDirective": "error",
+                "textAttributeNotBinding": "error",
+                "missingNgForOfLet": "error",
+                "suffixNotSupported": "error",
+                "optionalChainNotNullable": "error",
+            },
+
+            "defaultCategory": "warning"
+        }
+    },
+    "exclude": [
+        "**/*.spec.ts",
+    ]
 }

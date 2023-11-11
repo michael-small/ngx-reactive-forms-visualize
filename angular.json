@@ -30,6 +30,35 @@
                         "tsConfig": "projects/ngx-reactive-forms-visualizer/tsconfig.spec.json",
                         "polyfills": ["zone.js", "zone.js/testing"]
                     }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "projects/ngx-reactive-forms-visualizer/**/*.ts",
+                            "projects/ngx-reactive-forms-visualizer/**/*.html"
+                        ]
+                    }
+                },
+                "storybook": {
+                    "builder": "@storybook/angular:start-storybook",
+                    "options": {
+                        "configDir": "projects/ngx-reactive-forms-visualizer/.storybook",
+                        "browserTarget": "ngx-reactive-forms-visualizer:build",
+                        "compodoc": true,
+                        "compodocArgs": ["-e", "json", "-d", "projects/ngx-reactive-forms-visualizer"],
+                        "port": 6006
+                    }
+                },
+                "build-storybook": {
+                    "builder": "@storybook/angular:build-storybook",
+                    "options": {
+                        "configDir": "projects/ngx-reactive-forms-visualizer/.storybook",
+                        "browserTarget": "ngx-reactive-forms-visualizer:build",
+                        "compodoc": true,
+                        "compodocArgs": ["-e", "json", "-d", "projects/ngx-reactive-forms-visualizer"],
+                        "outputDir": "dist/storybook/ngx-reactive-forms-visualizer"
+                    }
                 }
             }
         },
@@ -53,14 +82,8 @@
                         "polyfills": ["zone.js"],
                         "tsConfig": "projects/testing/tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
-                        "assets": [
-                            "projects/testing/src/favicon.ico",
-                            "projects/testing/src/assets"
-                        ],
-                        "styles": [
-                            "projects/testing/src/styles.scss",
-                            "projects/testing/src/theme.scss"
-                        ],
+                        "assets": ["projects/testing/src/favicon.ico", "projects/testing/src/assets"],
+                        "styles": ["projects/testing/src/styles.scss", "projects/testing/src/theme.scss"],
                         "scripts": []
                     },
                     "configurations": {
@@ -114,21 +137,43 @@
                         "polyfills": ["zone.js", "zone.js/testing"],
                         "tsConfig": "projects/testing/tsconfig.spec.json",
                         "inlineStyleLanguage": "scss",
-                        "assets": [
-                            "projects/testing/src/favicon.ico",
-                            "projects/testing/src/assets"
-                        ],
-                        "styles": [
-                            "projects/testing/src/styles.scss",
-                            "src/theme.scss"
-                        ],
+                        "assets": ["projects/testing/src/favicon.ico", "projects/testing/src/assets"],
+                        "styles": ["projects/testing/src/styles.scss", "projects/testing/src/theme.scss"],
                         "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": ["projects/testing/**/*.ts", "projects/testing/**/*.html"]
+                    }
+                },
+                "storybook": {
+                    "builder": "@storybook/angular:start-storybook",
+                    "options": {
+                        "configDir": "projects/testing/.storybook",
+                        "browserTarget": "testing:build",
+                        "compodoc": true,
+                        "compodocArgs": ["-e", "json", "-d", "projects/testing"],
+                        "port": 6006,
+                        "styles": ["projects/testing/src/styles.scss", "projects/testing/src/theme.scss"]
+                    }
+                },
+                "build-storybook": {
+                    "builder": "@storybook/angular:build-storybook",
+                    "options": {
+                        "configDir": "projects/testing/.storybook",
+                        "browserTarget": "testing:build",
+                        "compodoc": true,
+                        "compodocArgs": ["-e", "json", "-d", "projects/testing"],
+                        "outputDir": "dist/storybook/testing"
                     }
                 }
             }
         }
     },
     "cli": {
-        "analytics": "ecbb1414-effb-4c67-86c6-ac03cbbd175e"
+        "analytics": "ecbb1414-effb-4c67-86c6-ac03cbbd175e",
+        "schematicCollections": ["@angular-eslint/schematics"]
     }
 }
