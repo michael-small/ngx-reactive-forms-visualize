@@ -10,6 +10,7 @@ import { MatDividerModule } from '@angular/material/divider';
     imports: [CommonModule, CallPipe, ApplyPipe, MatButtonModule, MatDividerModule],
     template: `
         <div>
+            <h2>Call & Apply Pipe (ngxtension)</h2>
             <p>Call pipe {{ stuff | call: capsThis }}</p>
             <p>Apply pipe: {{ getTargetFieldPlaceholder | apply: type }}</p>
             <button (click)="setType('solid')">make solid</button>
@@ -17,13 +18,14 @@ import { MatDividerModule } from '@angular/material/divider';
         </div>
         <mat-divider />
         <div>
-            <p>count: {{ count() }}</p>
-            <p>doubleCount: {{ doubleCount() }}</p>
+            <h2>Signals & Computed and Updated</h2>
+            <p>count: {{ count() | json }}</p>
+            <p>doubleCount: {{ doubleCount() | json }}</p>
             <hr />
-            <p>countObj: {{ countObj().count }}</p>
-            <p>doubleCountObj: {{ doubleCountObj().count }}</p>
-            <button (click)="updateValue()" mat-raised-button color="primary">update value</button>
+            <p>countObj: {{ countObj() | json }}</p>
+            <p>doubleCountObj: {{ doubleCountObj() | json }}</p>
         </div>
+        <button (click)="updateValue()" mat-raised-button color="primary">update value</button>
     `,
     styles: [],
 })

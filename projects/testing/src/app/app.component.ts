@@ -11,6 +11,7 @@ import { BasicPreComponent, ValidationStatusTreeComponent } from 'ngx-reactive-f
 // import { BasicPreComponent, ValidationStatusTreeComponent } from 'dist/ngx-reactive-forms-visualizer';
 // import { BasicPreComponent, ValidationStatusTreeComponent } from 'projects/ngx-reactive-forms-visualizer';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -30,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
         JsonPipe,
         TestComponent,
         MatButtonModule,
+        RouterOutlet,
     ],
 })
 export class AppComponent {
