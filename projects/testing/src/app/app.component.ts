@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
     router = inject(Router);
 
     ngOnInit() {
-        console.log(this.activeLink);
         this.router.navigate([this.activeLink]);
     }
 }

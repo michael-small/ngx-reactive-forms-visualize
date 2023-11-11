@@ -9,12 +9,14 @@ import { MatDividerModule } from '@angular/material/divider';
     imports: [CommonModule, MatButtonModule, MatDividerModule],
     template: `
         <div>
-            <h2>Signals & Computed and Updated</h2>
-            <p>count: {{ count() | json }}</p>
-            <p>doubleCount: {{ doubleCount() | json }}</p>
+            <h2>Signals & Computed and Update</h2>
+            <p>count primative: {{ count() | json }}</p>
+            <p>doubleCount primative: {{ doubleCount() | json }}</p>
+
             <hr />
-            <p>countObj: {{ countObj() | json }}</p>
-            <p>doubleCountObj: {{ doubleCountObj() | json }}</p>
+
+            <pre>"countObj": {{ countObj() | json }}</pre>
+            <pre>"doubleCountObj": {{ doubleCountObj() | json }}</pre>
         </div>
         <button (click)="updateValue()" mat-raised-button color="primary">update value</button>
     `,
@@ -24,18 +26,18 @@ export class SignalsComponent {
     count: WritableSignal<number> = signal(1);
     doubleCount: Signal<number> = computed(() => this.count() * 2);
 
-    countObj: WritableSignal<{ name: string; count: number }> = signal({
-        name: 'thingy',
+    countObj: WritableSignal<{ isSignal: boolean; count: number }> = signal({
+        isSignal: true,
         count: 1,
     });
-    doubleCountObj: Signal<{ name: string; count: number }> = computed(() => {
-        return { name: this.countObj().name, count: this.countObj().count * 2 };
+    doubleCountObj: Signal<{ isSignal: boolean; count: number }> = computed(() => {
+        return { isSignal: this.countObj().isSignal, count: this.countObj().count * 2 };
     });
 
     updateValue() {
         this.count.update(value => value + 1);
         this.countObj.update(value => {
-            return { name: value.name, count: value.count + 1 };
+            return { ...value, count: value.count + 1 };
         });
     }
 }
