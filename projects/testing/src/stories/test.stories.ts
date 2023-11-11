@@ -1,6 +1,6 @@
 import type { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
-import { TestComponent } from '../app/test/test.component';
+import { TestComponent } from '../app/signals/signals.component';
 
 export default {
     title: 'Test',

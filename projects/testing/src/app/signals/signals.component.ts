@@ -1,22 +1,13 @@
 import { Component, Signal, WritableSignal, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CallPipe, ApplyPipe } from 'ngxtension/call-apply';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
-    selector: 'app-test',
+    selector: 'app-signals',
     standalone: true,
-    imports: [CommonModule, CallPipe, ApplyPipe, MatButtonModule, MatDividerModule],
+    imports: [CommonModule, MatButtonModule, MatDividerModule],
     template: `
-        <div>
-            <h2>Call & Apply Pipe (ngxtension)</h2>
-            <p>Call pipe {{ stuff | call: capsThis }}</p>
-            <p>Apply pipe: {{ getTargetFieldPlaceholder | apply: type }}</p>
-            <button (click)="setType('solid')">make solid</button>
-            <button (click)="setType('liquid')">make liquid</button>
-        </div>
-        <mat-divider />
         <div>
             <h2>Signals & Computed and Updated</h2>
             <p>count: {{ count() | json }}</p>
@@ -29,23 +20,7 @@ import { MatDividerModule } from '@angular/material/divider';
     `,
     styles: [],
 })
-export class TestComponent {
-    stuff = 'stuff';
-
-    type: 'solid' | 'liquid' = 'solid';
-
-    setType(type: 'solid' | 'liquid') {
-        this.type = type;
-    }
-
-    capsThis(thing: string) {
-        return thing.toUpperCase();
-    }
-
-    getTargetFieldPlaceholder(type: 'solid' | 'liquid', extraPrompt?: string) {
-        return (type === 'solid' ? 'fork' : 'spoon') + (extraPrompt ?? '');
-    }
-
+export class SignalsComponent {
     count: WritableSignal<number> = signal(1);
     doubleCount: Signal<number> = computed(() => this.count() * 2);
 
