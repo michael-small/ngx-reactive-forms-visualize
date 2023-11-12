@@ -9,6 +9,11 @@ import { MatDividerModule } from '@angular/material/divider';
     imports: [CommonModule, MatButtonModule, MatDividerModule],
     template: `
         <div>
+            <a href="https://angular.dev/guide/signals" target="_blank">Documentation</a>
+            <blockquote>
+                Angular Signals is a system that granularly tracks how and where your state is used throughout an
+                application, allowing the framework to optimize rendering updates.
+            </blockquote>
             <h2>Signals & Computed and Update</h2>
             <p>count primative: {{ count() | json }}</p>
             <p>doubleCount primative: {{ doubleCount() | json }}</p>
